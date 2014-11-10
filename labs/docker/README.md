@@ -71,40 +71,36 @@ After a couple of minutes, we have our host VM running,a storage account for the
 We could use the tls command also to setup an image for our container on but a better approach would be to define a Dockerfile and let Docker manage the creation of the image. The Dockerfile instructs Docker what base image should be used and what command it must execute on top of the base image to create additional layers that ultimately make up the image that has all the parts our app needs to run. In our case this will be Node, NPM (the Node package manager) and our application script files.
 
 * Create the following Dockerfile:
-'''
-# DOCKER-VERSION .....
+    # DOCKER-VERSION .....
 
-FROM ubuntu:14.04
+    FROM ubuntu:14.04
 
-# make sure apt is up to date
-RUN apt-get update
+    # make sure apt is up to date
+    RUN apt-get update
 
-# install nodejs and npm
-RUN apt-get install -y nodejs npm git git-core
+    # install nodejs and npm
+    RUN apt-get install -y nodejs npm git git-core
 
-ADD start.sh /tmp/
+    ADD start.sh /tmp/
 
-RUN chmod +x /tmp/start.sh
+    RUN chmod +x /tmp/start.sh
 
-CMD ./tmp/start.sh
-'''
+    CMD ./tmp/start.sh
 
-* And add the start.sh script file that we can edit without the need to rebuild the image.
-* Replace the GITREPO tag with the GIT repository URL (https://github.com/[name]/[REPO].git) that contains the REST API code for our Node application.
-'''
-cd /tmp
+* And add the start.sh script file that we can edit without the need to rebuild the image. Replace the GITREPO tag with the GIT repository URL (https://github.com/[name]/[REPO].git) that contains the REST API code for our Node application:
 
-# try to remove the repo if it already exists
-rm -rf [GITREPO]; true
+    cd /tmp
 
-git clone [GITREPO]
+    # try to remove the repo if it already exists
+    rm -rf [GITREPO]; true
 
-cd [GITREPO]
+    git clone [GITREPO]
 
-npm install
+    cd [GITREPO]
 
-node .
-'''
+    npm install
+
+    node .
 
 #### Running the REST API and connecting up the Tessel client
 * Create the Dockerfile
