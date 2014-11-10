@@ -2,6 +2,16 @@ Calling a REST API, running in a Docker container on Linux hosted in an Azure VM
 =============
 Docker is a tool to manage Linux containers. Containers are processes that have isolated storage, networking and compute resources. Docker is the client tool to create, extend, run and deploy containers. Containers offer a runtime for web applications, services, databases, whatever you can run on Linux (and soon also on Windows). 
 
+Let's now call the custom RESTful Web API from our Tessel. The sample code is located in the [tessel](tessel) folder. Examine the code and change the URL to point to your custom API. Run the code:
+
+	cd tessel
+	tessel run blinky-websites.js
+
+You will see some output on the console and when you are told to press the config-button (close to the orange led on your Tessel), do so and your Tessel will call your custom API hosted on Azure Websites. When the random number returns, the Tessel will flash its led as many times as the random number said.
+
+
+
+
 Containers are run from Docker images (just like a VM has as a source image file). You can write setup files called Dockerfiles that instruct Docker which steps and commands it should run to build up the image.
 
 Why care about Containers and Docker? Docker makes it very simple to setup environments and make efficient use of the resource a VM has to offer. Once you have a host VM running you can run any number of containers on it that can startup very fast (think sub-second!).
