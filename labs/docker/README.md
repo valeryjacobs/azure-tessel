@@ -1,4 +1,4 @@
-Calling a REST API, running in a Docker container on Linux hosted in an Azure VM, directly from your Tessel.
+Using Docker on Linux to host a REST API and connect to it from Tessel.
 =============
 Docker is a tool to manage Linux containers. Containers are processes that have isolated storage, networking and compute resources. Docker is the client tool to create, extend, run and deploy containers. Containers offer a runtime for web applications, services, databases, whatever you can run on Linux (and soon also on Windows). 
 
