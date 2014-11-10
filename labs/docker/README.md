@@ -1,5 +1,5 @@
-Using Docker on Linux to host a REST API and connect to it from Tessel.
-=============
+Using Docker on Linux to host a REST API and connect to it from Tessel
+============
 Docker is a tool to manage Linux containers. Containers are processes that have isolated storage, networking and compute resources. Docker is the client tool to create, extend, run and deploy containers. Containers offer a runtime for web applications, services, databases, whatever you can run on Linux (and soon also on Windows). 
 
 Containers are run from Docker images (just like a VM has as a source image file). You can write setup files called Dockerfiles that instruct Docker which steps and commands it should run to build up the image.
